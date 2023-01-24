@@ -13,12 +13,12 @@ import java.util.UUID;
 
 @Entity
 @Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID hotelId;
+    private UUID id;
     @Nonnull
     @Column(name = "name", nullable = false)
     private String name;

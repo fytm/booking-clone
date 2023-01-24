@@ -1,4 +1,4 @@
-package com.hotelapp.demo.service;
+package com.hotelapp.demo.services;
 
 import com.hotelapp.demo.dto.CreateHotelDto;
 import com.hotelapp.demo.model.Hotel;
@@ -8,12 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HotelService {
+public class HotelServiceImpl implements HotelService {
     @Autowired
     private HotelRepository hotelRepository;
     @Autowired
     private ModelMapper modelMapper;
-    public void create(CreateHotelDto createHotelDto){
-        hotelRepository.save(modelMapper.map(createHotelDto,Hotel.class));
+    public Hotel create(CreateHotelDto createHotelDto){
+        return hotelRepository.save(modelMapper.map(createHotelDto,Hotel.class));
     }
 }
