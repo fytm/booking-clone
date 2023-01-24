@@ -14,7 +14,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @SpringBootTest
-class HotelServiceTest {
+class HotelServiceImplTest {
     @Autowired
     HotelServiceImpl hotelService;
     @MockBean
@@ -33,4 +33,6 @@ class HotelServiceTest {
         //and that the model mapper is called once
         verify(mockedModelMapper, times(1)).map(testDto, Hotel.class);
     }
+
+
 }

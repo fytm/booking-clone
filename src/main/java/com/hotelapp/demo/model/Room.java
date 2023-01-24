@@ -14,7 +14,7 @@ import java.util.UUID;
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID roomId;
+    private UUID id;
     @Nonnull
     @Column(name = "number", nullable = false)
     String number;
@@ -29,7 +29,7 @@ public class Room {
     RoomStatus status;
     @Nonnull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "hotel_id", nullable = false)
+    @JoinColumn(name = "hotel.id", nullable = false)
     Hotel hotel;
 
 }
