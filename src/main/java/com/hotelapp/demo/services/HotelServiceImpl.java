@@ -1,7 +1,6 @@
 package com.hotelapp.demo.services;
 
 import com.hotelapp.demo.dto.CreateHotelDto;
-import com.hotelapp.demo.dto.ViewHotelDto;
 import com.hotelapp.demo.exceptions.HotelNotFoundException;
 import com.hotelapp.demo.model.Hotel;
 import com.hotelapp.demo.repository.HotelRepository;
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -27,7 +25,7 @@ public class HotelServiceImpl implements HotelService {
         return hotelRepository.findAll();
     }
 
-    public Hotel getHotelById(UUID id){
+    public Hotel getHotelById(UUID id) throws HotelNotFoundException{
         return hotelRepository.findById(id).orElseThrow(() -> new HotelNotFoundException(id));
     }
 
