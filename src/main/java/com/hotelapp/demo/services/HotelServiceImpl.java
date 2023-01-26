@@ -1,11 +1,13 @@
 package com.hotelapp.demo.services;
 
 import com.hotelapp.demo.dto.CreateHotelDto;
+import com.hotelapp.demo.dto.UpdateHotelDto;
 import com.hotelapp.demo.exceptions.HotelNotFoundException;
 import com.hotelapp.demo.model.Hotel;
 import com.hotelapp.demo.repository.HotelRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,8 +31,8 @@ public class HotelServiceImpl implements HotelService {
         return hotelRepository.findById(id).orElseThrow(() -> new HotelNotFoundException(id));
     }
 
-    public Hotel updateHotel(Hotel updatedHotel){
-        Hotel hotel = hotelRepository.findById(updatedHotel.getId()).orElseThrow(() ->new HotelNotFoundException(updatedHotel.getId()));
+    public Hotel updateHotel(UUID id, UpdateHotelDto updatedHotel){
+        Hotel hotel = hotelRepository.findById(id).orElseThrow(() ->new HotelNotFoundException(id));
         hotel.setName(updatedHotel.getName());
         hotel.setAddress(updatedHotel.getAddress());
         hotel.setContact(updatedHotel.getContact());
@@ -38,6 +40,9 @@ public class HotelServiceImpl implements HotelService {
     }
 
     public void deleteHotelById(UUID id){
-        hotelRepository.deleteById(id);
+        try{hotelRepository.deleteById(id);}
+        catch (EmptyResultDataAccessException e){
+            throw new HotelNotFoundException(id);
+        }
     }
 }
