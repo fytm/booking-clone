@@ -12,4 +12,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> catchException(HotelNotFoundException exception) {
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(value = RoomNotFoundException.class)
+    public ResponseEntity<String> catchException(RoomNotFoundException exception){
+        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    }
 }

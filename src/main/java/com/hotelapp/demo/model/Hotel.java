@@ -1,12 +1,12 @@
 package com.hotelapp.demo.model;
 
-import jakarta.annotation.Nonnull;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
@@ -19,13 +19,13 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @Nonnull
+    @NonNull
     @Column(name = "name", nullable = false)
     private String name;
-    @Nonnull
+    @NonNull
     @Column(name = "address", nullable = false)
     private String address;
-    @Nonnull
+    @NonNull
     @Column(name = "contact", nullable = false)
     private String contact;
     @Column(name = "created", updatable = false)

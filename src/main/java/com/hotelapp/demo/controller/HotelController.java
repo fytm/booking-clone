@@ -2,9 +2,8 @@ package com.hotelapp.demo.controller;
 
 import com.hotelapp.demo.dto.CreateHotelDto;
 import com.hotelapp.demo.dto.UpdateHotelDto;
-import com.hotelapp.demo.exceptions.HotelNotFoundException;
 import com.hotelapp.demo.model.Hotel;
-import com.hotelapp.demo.services.HotelServiceImpl;
+import com.hotelapp.demo.services.HotelService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ import java.util.UUID;
 @CrossOrigin(origins = "*")
 public class HotelController {
     @Autowired
-    HotelServiceImpl hotelService;
+    HotelService hotelService;
 
     @Operation(summary = "Create new hotel")
     @ApiResponse(description = "Hotel created successfully!")
