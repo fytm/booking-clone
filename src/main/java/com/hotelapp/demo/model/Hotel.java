@@ -1,9 +1,6 @@
 package com.hotelapp.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -12,9 +9,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Data
+@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
