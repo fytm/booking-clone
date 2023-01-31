@@ -1,6 +1,6 @@
 package com.hotelapp.demo.controller;
 
-import com.hotelapp.demo.dto.CreateRoomDTO;
+import com.hotelapp.demo.dto.CreateRoomDto;
 import com.hotelapp.demo.dto.UpdateRoomDto;
 import com.hotelapp.demo.model.Room;
 import com.hotelapp.demo.services.RoomService;
@@ -24,7 +24,7 @@ public class RoomController {
     @Operation(summary = "Create new room")
     @ApiResponse(description = "Room created successfully!")
     @PostMapping
-    public ResponseEntity<?> createRoom(@RequestBody CreateRoomDTO roomDTO) {
+    public ResponseEntity<?> createRoom(@RequestBody CreateRoomDto roomDTO) {
         return new ResponseEntity<>(roomService.create(roomDTO), HttpStatus.CREATED);
     }
 

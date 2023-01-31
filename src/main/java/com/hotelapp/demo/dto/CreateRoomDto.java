@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateRoomDTO {
+public class CreateRoomDto {
     String number;
     int floor;
     int capacity;

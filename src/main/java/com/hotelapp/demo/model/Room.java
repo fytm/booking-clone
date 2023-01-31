@@ -1,16 +1,17 @@
 package com.hotelapp.demo.model;
 
 import com.hotelapp.demo.enums.RoomStatus;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,5 +30,6 @@ public class Room {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel.id", nullable = false)
     Hotel hotel;
+
 
 }

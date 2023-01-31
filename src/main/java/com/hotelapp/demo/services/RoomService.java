@@ -1,6 +1,6 @@
 package com.hotelapp.demo.services;
 
-import com.hotelapp.demo.dto.CreateRoomDTO;
+import com.hotelapp.demo.dto.CreateRoomDto;
 import com.hotelapp.demo.dto.UpdateRoomDto;
 import com.hotelapp.demo.model.Room;
 
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface RoomService {
 
-    Room create(CreateRoomDTO createRoomDTO);
+    Room create(CreateRoomDto createRoomDTO);
     List<Room> getAllRooms();
     Room getRoomById(UUID uuid);
 

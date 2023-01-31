@@ -1,6 +1,6 @@
 package com.hotelapp.demo.services;
 
-import com.hotelapp.demo.dto.CreateRoomDTO;
+import com.hotelapp.demo.dto.CreateRoomDto;
 import com.hotelapp.demo.dto.UpdateRoomDto;
 import com.hotelapp.demo.exceptions.RoomNotFoundException;
 import com.hotelapp.demo.model.Room;
@@ -19,7 +19,7 @@ public class RoomServiceImpl implements RoomService {
     ModelMapper modelMapper;
 
     @Override
-    public Room create(CreateRoomDTO createRoomDTO) {
+    public Room create(CreateRoomDto createRoomDTO) {
         return roomRepository.save(modelMapper.map(createRoomDTO, Room.class));
     }
 
