@@ -2,6 +2,8 @@ package com.hotelapp.demo.model;
 
 import com.hotelapp.demo.enums.RoomStatus;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -28,7 +30,9 @@ public class Room {
     RoomStatus status;
     @NonNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "hotel.id", nullable = false)
+    @JoinColumn(name = "hotel_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    //    @JsonIgnore
     Hotel hotel;
 
 

@@ -5,7 +5,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -30,7 +29,5 @@ public class Hotel {
     @Column(name = "created", updatable = false)
     @CreationTimestamp
     private Timestamp created;
-    @OneToMany(mappedBy = "hotel", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Room> rooms;
 
 }
