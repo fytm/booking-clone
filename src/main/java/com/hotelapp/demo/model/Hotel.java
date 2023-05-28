@@ -1,20 +1,18 @@
 package com.hotelapp.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Data
+@RequiredArgsConstructor
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,7 +29,5 @@ public class Hotel {
     @Column(name = "created", updatable = false)
     @CreationTimestamp
     private Timestamp created;
-    @OneToMany(mappedBy = "hotel", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Room> rooms;
 
 }

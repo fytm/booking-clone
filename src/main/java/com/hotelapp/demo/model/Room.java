@@ -1,16 +1,19 @@
 package com.hotelapp.demo.model;
 
 import com.hotelapp.demo.enums.RoomStatus;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
+@RequiredArgsConstructor
+@Getter
+@Setter
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +30,9 @@ public class Room {
     RoomStatus status;
     @NonNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "hotel.id", nullable = false)
+    @JoinColumn(name = "hotel_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     Hotel hotel;
+
 
 }
