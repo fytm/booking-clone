@@ -32,7 +32,6 @@ public class Room {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "hotel_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
-    //    @JsonIgnore
     Hotel hotel;
 
 

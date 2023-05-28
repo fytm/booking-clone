@@ -4,6 +4,7 @@ import com.hotelapp.demo.enums.RoomStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.UUID;
 
@@ -15,5 +16,5 @@ public class CreateRoomDto {
     int floor;
     int capacity;
     RoomStatus status;
-    UUID hotelId;
+    @NonNull UUID hotelId;
 }
