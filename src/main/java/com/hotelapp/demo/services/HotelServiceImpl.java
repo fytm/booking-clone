@@ -19,29 +19,36 @@ public class HotelServiceImpl implements HotelService {
     private HotelRepository hotelRepository;
     @Autowired
     private ModelMapper modelMapper;
-    public Hotel create(CreateHotelDto createHotelDto){
-        return hotelRepository.save(modelMapper.map(createHotelDto,Hotel.class));
+
+    @Override
+    public Hotel create(CreateHotelDto createHotelDto) {
+        return hotelRepository.save(modelMapper.map(createHotelDto, Hotel.class));
     }
 
-    public List<Hotel> getAllHotels(){
+    @Override
+    public List<Hotel> getAllHotels() {
         return hotelRepository.findAll();
     }
 
-    public Hotel getHotelById(UUID id) throws HotelNotFoundException{
+    @Override
+    public Hotel getHotelById(UUID id) throws HotelNotFoundException {
         return hotelRepository.findById(id).orElseThrow(() -> new HotelNotFoundException(id));
     }
 
-    public Hotel updateHotel(UUID id, UpdateHotelDto updatedHotel){
-        Hotel hotel = hotelRepository.findById(id).orElseThrow(() ->new HotelNotFoundException(id));
+    @Override
+    public Hotel updateHotel(UUID id, UpdateHotelDto updatedHotel) {
+        Hotel hotel = hotelRepository.findById(id).orElseThrow(() -> new HotelNotFoundException(id));
         hotel.setName(updatedHotel.getName());
         hotel.setAddress(updatedHotel.getAddress());
         hotel.setContact(updatedHotel.getContact());
         return hotelRepository.save(hotel);
     }
 
-    public void deleteHotelById(UUID id){
-        try{hotelRepository.deleteById(id);}
-        catch (EmptyResultDataAccessException e){
+    @Override
+    public void deleteHotelById(UUID id) {
+        try {
+            hotelRepository.deleteById(id);
+        } catch (EmptyResultDataAccessException e) {
             throw new HotelNotFoundException(id);
         }
     }
