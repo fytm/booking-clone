@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class UpdateAdminDto {
 
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String password;
 }

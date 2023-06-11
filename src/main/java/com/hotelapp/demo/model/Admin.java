@@ -16,11 +16,11 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
     @NonNull
-    @Column(name = "first_name")
-    private String firstName;
+    @Column(name = "first_name", nullable = false)
+    private String firstname;
     @NonNull
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "last_name", nullable = false)
+    private String lastname;
     @NonNull
     @Column(name = "username", nullable = false)
     private String username;
